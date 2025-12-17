@@ -147,23 +147,5 @@
     </changeSet>
 
     <include file="db/changelog/2025/12/17-01-changelog.xml"/>
-
-    <changeSet id="002-add-initial-data-fixed-passwords" author="Marcin">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM voter</sqlCheck>
-        </preConditions>
-        <comment>Add sample test data with corrected BCrypt passwords</comment>
-        <sqlFile
-                path="db/initial-data.sql"
-                relativeToChangelogFile="false"
-                splitStatements="true"
-                stripComments="true"/>
-        <rollback>
-            <sql>DELETE FROM vote;</sql>
-            <sql>DELETE FROM voting_record;</sql>
-            <sql>DELETE FROM election_option;</sql>
-            <sql>DELETE FROM election;</sql>
-            <sql>DELETE FROM voter;</sql>
-        </rollback>
-    </changeSet>
+    <include file="db/changelog/changelog-data.xml"/>
 </databaseChangeLog>
