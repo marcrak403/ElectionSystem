@@ -1,6 +1,5 @@
 package com.rakit.electionsystem.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +14,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -60,19 +57,6 @@ public class Vote {
     @NotNull(message = "Election option is required")
     private ElectionOption electionOption;
 
-    @Column(name = "voted_at", nullable = false, updatable = false)
-    private LocalDateTime votedAt;
-
-    /**
-     * Lifecycle callback to set votedAt timestamp before persisting.
-     */
-    @PrePersist
-    protected void onCreate() {
-        votedAt = LocalDateTime.now();
-    }
-
-    // equals and hashCode based on id
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,7 +76,6 @@ public class Vote {
     public String toString() {
         return "Vote{" +
                 "id=" + id +
-                ", votedAt=" + votedAt +
                 '}';
     }
 }
