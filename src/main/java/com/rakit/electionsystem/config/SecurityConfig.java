@@ -46,14 +46,17 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Public endpoints
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/elections", "/api/elections/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         // Admin endpoints
-                        .requestMatchers(HttpMethod.POST, "/api/elections").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/elections/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/elections", "/api/elections/*/options").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/api/elections/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/elections/**").hasRole("ADMIN")
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        // Voter endpoints
+                        .requestMatchers(HttpMethod.POST, "/api/votes/cast").hasRole("VOTER")
                         // Authenticated endpoints
                         .anyRequest().authenticated()
                 )
