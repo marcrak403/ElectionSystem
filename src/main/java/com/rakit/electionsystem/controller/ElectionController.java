@@ -8,6 +8,7 @@ import com.rakit.electionsystem.service.ElectionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ public class ElectionController {
     private final ElectionService electionService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ElectionResponse> createElection(@RequestBody ElectionRequest electionRequest) {
         ElectionResponse createdElection = electionService.createElection(electionRequest);
         return new ResponseEntity<>(createdElection, HttpStatus.CREATED);
@@ -45,12 +47,14 @@ public class ElectionController {
     }
 
     @PatchMapping("/{id}/status")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ElectionResponse> updateElectionStatus(@PathVariable Long id, @RequestParam ElectionStatus status) {
         ElectionResponse updatedElection = electionService.updateElectionStatus(id, status);
         return ResponseEntity.ok(updatedElection);
     }
 
     @PostMapping("/{electionId}/options")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ElectionResponse> addOptionToElection(@PathVariable Long electionId, @RequestBody ElectionOptionRequest optionRequest) {
         ElectionResponse updatedElection = electionService.addOptionToElection(electionId, optionRequest);
         return ResponseEntity.ok(updatedElection);

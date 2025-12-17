@@ -32,6 +32,15 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
     long countByElectionOptionId(Long electionOptionId);
 
     /**
+     * Counts votes for a specific option within a specific election.
+     *
+     * @param electionId the election ID
+     * @param electionOptionId the election option ID
+     * @return number of votes for this option in this election
+     */
+    long countByElectionIdAndElectionOptionId(Long electionId, Long electionOptionId);
+
+    /**
      * Gets vote counts grouped by election option for a specific election.
      *
      * @param electionId the election ID
