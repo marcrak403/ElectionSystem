@@ -4,7 +4,7 @@
 --
 -- UWAGI:
 -- - Wszystkie hasła: "password123"
--- - BCrypt hash (strength 12): $2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe
+-- - BCrypt hash: $2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2
 -- - PESEL testowe (nie sprawdzane pod kątem poprawności sumy kontrolnej)
 -- ============================================
 
@@ -16,7 +16,7 @@
 INSERT INTO voter (email, password, first_name, last_name, role, active, created_at, updated_at)
 VALUES
     ('admin@voting.pl',
-     '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+     '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
      'Admin', 'System', 'ROLE_ADMIN', true,
      CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
@@ -25,52 +25,52 @@ INSERT INTO voter (email, password, first_name, last_name, pesel, role, active, 
 VALUES
 -- Grupa 1: Mieszkańcy którzy głosowali w wyborach na Wójta
 ('jan.kowalski@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Jan', 'Kowalski', '90010112345', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('anna.nowak@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Anna', 'Nowak', '85020298765', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('piotr.wisniewski@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Piotr', 'Wiśniewski', '92030387654', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('maria.wojcik@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Maria', 'Wójcik', '88040465432', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('tomasz.kaminski@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Tomasz', 'Kamiński', '91050543210', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('katarzyna.lewandowska@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Katarzyna', 'Lewandowska', '89060676543', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('andrzej.zielinski@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Andrzej', 'Zieliński', '87070765432', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('magdalena.szymanska@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Magdalena', 'Szymańska', '93080898765', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('robert.wozniak@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Robert', 'Woźniak', '86090987654', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
 ('ewa.dqbrowski@example.com',
- '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+ '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
  'Ewa', 'Dąbrowski', '94011076543', 'ROLE_VOTER', true,
  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
@@ -78,17 +78,17 @@ VALUES
 INSERT INTO voter (email, password, first_name, last_name, pesel, role, active, created_at, updated_at)
 VALUES
     ('krzysztof.pawlak@example.com',
-     '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+     '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
      'Krzysztof', 'Pawlak', '82120154321', 'ROLE_VOTER', true,
      CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
     ('monika.kaczmarek@example.com',
-     '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+     '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
      'Monika', 'Kaczmarek', '95030265432', 'ROLE_VOTER', true,
      CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
     ('pawel.mazur@example.com',
-     '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+     '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
      'Paweł', 'Mazur', '83040343210', 'ROLE_VOTER', true,
      CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
@@ -96,7 +96,7 @@ VALUES
 INSERT INTO voter (email, password, first_name, last_name, pesel, role, active, created_at, updated_at)
 VALUES
     ('blocked.user@example.com',
-     '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyE.3O5qGhhe',
+     '$2a$10$sXm32gMaILQ1Puoz0riJ2OxZteuTUKsOR7qoqGqA.m5Bh4xVqZew2',
      'Zablokowany', 'Użytkownik', '84010187654', 'ROLE_VOTER', false,
      CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
