@@ -3,6 +3,9 @@ package com.rakit.electionsystem.controller;
 import com.rakit.electionsystem.dto.VoterResponse;
 import com.rakit.electionsystem.model.Voter;
 import com.rakit.electionsystem.service.VoterService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,6 +26,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
 @PreAuthorize("hasRole('ADMIN')")
+@Tag(name = "Admin", description = "Administrative endpoints (Admin only)")
+@SecurityRequirement(name = "JWT Bearer Token")
 public class AdminController {
 
     private final VoterService voterService;
@@ -32,6 +37,7 @@ public class AdminController {
      *
      * @return list of all voters
      */
+    @Operation(summary = "Get all voters (Admin only)", description = "Returns a list of all registered voters")
     @GetMapping("/voters")
     public ResponseEntity<List<VoterResponse>> getAllVoters() {
         List<Voter> voters = voterService.getAllVoters();

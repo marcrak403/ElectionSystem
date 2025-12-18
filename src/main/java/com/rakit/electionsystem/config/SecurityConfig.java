@@ -50,6 +50,8 @@ public class SecurityConfig {
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/error").permitAll()
+                        // Swagger/OpenAPI endpoints
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         // Admin endpoints
                         .requestMatchers(HttpMethod.POST, "/api/elections", "/api/elections/*/options").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/elections/**").hasRole("ADMIN")
